@@ -1,4 +1,6 @@
+-- PER AVVIARE LE QUERY sqlite3 mydb.sqlite < biblioteca.sql
 -- Creo le Tabelle
+DROP TABLE IF EXISTS Studente;
 Create Table Studente(
     Matricola Int Primary Key,
     Nome Varchar(50) Not Null,
@@ -6,6 +8,7 @@ Create Table Studente(
     Corso_di_Laurea Varchar(70) Not Null
 );
 
+DROP TABLE IF EXISTS Prestito;
 Create Table Prestito(
     Id_Prestito Int Primary Key,
     Inizio_Prestito Date Not Null,
@@ -16,6 +19,7 @@ Create Table Prestito(
     Foreign Key(ISBN) References Libro(ISBN)
 );
 
+DROP TABLE IF EXISTS Libro;
 Create Table Libro(
     ISBN Int Primary Key,
     Autore Varchar(50) Not Null,
@@ -25,6 +29,7 @@ Create Table Libro(
     Foreign Key(Id_Categoria) References Categoria(Id_Categoria)
 );
 
+DROP TABLE IF EXISTS Categoria;
 Create Table Categoria(
     Id_Categoria Int Primary Key,
     Nome Varchar(50) Not Null
@@ -80,3 +85,5 @@ INSERT INTO Prestito (Id_Prestito, Matricola, ISBN, Inizio_Prestito, Data_Restit
 (8, 108, 1008, '2025-10-15', '2025-10-29'),
 (9, 109, 1009, '2025-10-17', '2025-10-31'),
 (10, 110, 1010, '2025-10-19', '2025-11-02');
+
+Select * From Studente;
